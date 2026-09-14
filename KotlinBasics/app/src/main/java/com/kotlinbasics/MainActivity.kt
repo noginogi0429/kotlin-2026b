@@ -28,6 +28,7 @@ class MainActivity : ComponentActivity() {
             }
         }
         week03Variables()
+        week03Functions()
     }
 }
 
@@ -61,6 +62,31 @@ private fun week03Variables() {
     var nickname : String? = null //뒤에 ?를 넣어야 null값 할당 가능
     nickname = "mirae"
     println("Nickname: $nickname, ${nickname?.length}")
+}
+
+private fun week03Functions(){
+//    println("Week03: Functions")
+//
+    fun greet(name: String) = "Hello, $name!"
+//
+//    println(greet("Android developer"))
+
+    println("== Kotlin Functions ==")
+
+//    fun greet(name: String): String {
+//        return "Hello, $name!"
+//    }
+
+    fun add(a: Int, b: Int) = a + b
+
+    fun introduce(name: String, age: Int = 19){
+        println("My name is $name and I'm $age years old")
+    }
+
+    println(greet("Kotlin"))
+    println("Sum: ${add(5, -71)}")
+    introduce("Kim", 7)
+    introduce("Park")
 }
 
 @Composable
