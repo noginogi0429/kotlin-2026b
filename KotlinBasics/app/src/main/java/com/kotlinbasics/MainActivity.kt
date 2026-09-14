@@ -27,7 +27,40 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        week03Variables()
     }
+}
+
+private fun week03Variables() {
+    println("Week03: Variables")
+
+    val courseName = "Mobile Programming"
+    //courseName = "Data Structure" -> error
+    //val은 값 재할당 불가능
+
+    var week = 2
+    week = 3 //var은 재할당 가능
+
+    println("Course: $courseName")
+    println("Week: $week")
+
+
+    println("========= Kotlin Variables =========")
+
+    //val(immutable) vs var(mutable)
+    val name = "Android"
+    var version = 8
+    println("Hi $name $version")
+
+    val age : Int = 24
+    val height : Double = 177.7
+    val isStudent : Boolean = false
+    println("Age: $age, Height: $height, Student: $isStudent")
+
+    //var nickname : String = null -> error
+    var nickname : String? = null //뒤에 ?를 넣어야 null값 할당 가능
+    nickname = "mirae"
+    println("Nickname: $nickname, ${nickname?.length}")
 }
 
 @Composable
