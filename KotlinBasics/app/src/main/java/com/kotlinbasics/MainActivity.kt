@@ -30,6 +30,8 @@ class MainActivity : ComponentActivity() {
         week03Variables()
         week03Functions()
         week04Functions()
+        week04Classes()
+        week04Collections()
     }
 }
 
@@ -101,6 +103,42 @@ private fun week04Functions(){
         for(m in msg) println(m)
     }
     printMany("A", "B", "C", "D")
+}
+
+private fun week04Classes() {
+    println("== Kotlin Classes ==")
+
+    class Student{
+        var name: String = ""
+        var age: Int = 0
+
+        fun introduce() {
+            println("Hi, I'm $name and $age years old")
+        }
+    }
+    val student1 = Student()
+    student1.name = "Mirae"
+    student1.age = 21
+    student1.introduce()
+
+    data class Person(val name: String, val age: Int)
+    val person1 = Person("Kim", 23)
+    val person2 = Person("Park", 21)
+    println("person1: $person1")
+    println("person1: ${person1.name}")
+    println("person1: ${person1.age}")
+    println("person2: $person2")
+}
+
+private fun week04Collections() {
+    println("== Kotlin Collections ==")
+
+    val fruits = listOf("apple", "banana", "orange")
+    val mutableFruits = mutableListOf("kiwi", "watermelon")
+    // fruits.add("kiwi") = error(class fruits is immutable)
+    println("fruits: $fruits")
+    mutableFruits.add("banana")
+    println("mutalbe fruits: $mutableFruits")
 }
 
 @Composable
