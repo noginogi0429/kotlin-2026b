@@ -1,6 +1,7 @@
 package com.kotlinbasics
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -32,6 +33,8 @@ class MainActivity : ComponentActivity() {
         week04Functions()
         week04Classes()
         week04Collections()
+        week04Classes25()
+        week04Collections25()
     }
 }
 
@@ -149,6 +152,74 @@ private fun week04Collections() {
     }
     scores.forEach{(name, score) -> println("$name scored $score")}
     fruits.forEach{fruit -> println(fruit)}
+}
+
+private fun week04Classes25(){
+    Log.d("KotlinWeek03", "== Kotlin Classes ==")
+
+    class Person(val name: String, var age: Int){
+        fun introduce(){
+            Log.d("KotlinWeek03", "안녕하세요, $name ($age 세)입니다.")
+        }
+        fun birthday(){
+            age++
+            Log.d("KotlinWeek03", "$name 의 생일! 이제 $age 세...")
+        }
+    }
+    val person1 = Person("홍길동", 27)
+    person1.introduce()
+    person1.birthday()
+
+    open class Animal(var species: String){
+        var weight: Double = 0.0
+        constructor(species: String, weight: Double) : this(species){
+            this.weight = weight
+            Log.d("KotlinWeek03", "$species 의 무게 : $weight kg")
+        }
+        open fun makeSound(){
+            Log.d("KotlinWeek03", "$species 가 소리를 냅니다.")
+        }
+    }
+    val puppy = Animal("강아지", 10.5)
+    puppy.makeSound()
+
+    class Dog(species: String, weight: Double, val breed: String) : Animal(species, weight){
+        override fun makeSound(){
+            Log.d("KotlinWeek03", "$breed($species)가 멍멍 짖습니다!")
+        }
+    }
+
+    val dog = Dog("개", 12.5, "골든 리트리버")
+    dog.makeSound()
+
+    data class Book(val title: String, val author: String, val pages: Int)
+
+    val book1 = Book("코틀린 입문", "Kim", 400)
+    val book2 = Book("코틀린 입문", "Kim", 400)
+
+    Log.d("KotlinWeek04", "book1 == book2: ${book1 == book2}")
+    Log.d("KotlinWeek04", "book1: $book1")
+}
+
+private fun week04Collections25(){
+    println("== Kotlin Collections ==")
+
+    val fruits = listOf("apple", "banana", "orange")
+    val mutableFruits = mutableListOf("kiwi", "watermelon")
+
+    //fruits.add("kiwi")
+    println("Fruits : $fruits")
+    mutableFruits.add("banana")
+    println("Mutable fruits : $mutableFruits")
+
+    val scores = mapOf("Kim" to 100, "Park" to 97, "Lee" to 99)
+    println("Scores : $scores")
+
+    for(fruit in mutableFruits){
+        println("I like $fruit")
+    }
+
+    scores.forEach{(name, score) -> println("$name scored $score")}
 }
 
 @Composable
