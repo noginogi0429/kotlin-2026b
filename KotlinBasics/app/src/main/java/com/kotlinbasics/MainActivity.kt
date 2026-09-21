@@ -29,6 +29,7 @@ class MainActivity : ComponentActivity() {
         }
         week03Variables()
         week03Functions()
+        week04Functions()
     }
 }
 
@@ -48,7 +49,7 @@ private fun week03Variables() {
 
     println("========= Kotlin Variables =========")
 
-    //val(immutable) vs var(mutable)
+    //val(value, immutable) vs var(varible, mutable)
     val name = "Android"
     var version = 8
     println("Hi $name $version")
@@ -66,10 +67,10 @@ private fun week03Variables() {
 
 private fun week03Functions(){
 //    println("Week03: Functions")
-//
+
     fun greet(name: String) = "Hello, $name!"
-//
-//    println(greet("Android developer"))
+
+    println(greet("Android developer"))
 
     println("== Kotlin Functions ==")
 
@@ -87,6 +88,19 @@ private fun week03Functions(){
     println("Sum: ${add(5, -71)}")
     introduce("Kim", 7)
     introduce("Park")
+}
+
+private fun week04Functions(){
+    fun printAll(vip: Boolean, name: String) {
+        println("$vip, $name")
+    }
+    printAll(false, "dy")
+    printAll(name = "mirae", vip = true)
+
+    fun printMany(vararg msg: String) {     //vararg: 가변인자
+        for(m in msg) println(m)
+    }
+    printMany("A", "B", "C", "D")
 }
 
 @Composable
